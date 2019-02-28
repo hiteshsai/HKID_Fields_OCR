@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>Jocata Field Retrival Software</title>
+        </head>
+        <div style="background-color:#565252">
+              <img src="https://jocata.com/wp-content/themes/jocata/img/jocata.png">
+              </div>
+        <body>
+        <center>
+                <!-- List of uploaded documents -->
+                {% if documents %}
+                        <ul>
+                        {% for document in documents %}
+                        <!--
+                                <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}
+                                <img src="{{ document.docfile.url }}" alt="{{ document.docfile.name }}">
+                              </a></li> !-->
+                        {% endfor %}
+                        </ul>
+                {% else %}
+                        <!--<p>No Images in the db.</p> !-->
+                {% endif %}
+
+                <!-- Upload form. Note enctype attribute! -->
+                <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>{{ form.non_field_errors }}</p>
+                        <strong><p>{{ form.docfile.label_tag }} </p></strong>
+                        <p>
+                                {{ form.docfile.errors }}
+                                {{ form.docfile }}
+                        </p>
+                        <p><input type="submit" value="Upload" /></p>
+                </form>
+
+                </center>
+        </body>
+
+</html>
