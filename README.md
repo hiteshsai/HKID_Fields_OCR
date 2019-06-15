@@ -1,7 +1,7 @@
-# HKID_Fields_OCR
+# Hong Kong Identification cards OCR
 
 
-Extracts face and get all fields from the card.
+Extracts photo from the cardd and get all unique text fields from the card.
 
 Just run the django server and test cases in test folder of driving folder.
 
